@@ -6,6 +6,7 @@
   "scripts": {
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
+    "api-docs": "nodemon --exec node api-docs/server.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}"
   },
