@@ -36,10 +36,10 @@
         }
     ],
     "paths": {
-        "/images/import": {
+        "/image/import": {
             "post": {
                 "tags": [
-                    "Images"
+                    "Image"
                 ],
                 "summary": "The service used to import the image.",
                 "requestBody": {
@@ -75,7 +75,15 @@
                                 "examples": {
                                     "result": {
                                         "value": {
-                                            
+                                            "status": true,
+                                            "code": 202,
+                                            "data": {
+                                                "url": "http://localhost:8000/image.file/profile/1bcc1e2f-24b3-4b90-b6c4-31260fc3056a"
+                                            },
+                                            "userMessage": "The request has been received",
+                                            "userMoreInfo": "",
+                                            "developerMessage": "Accepted",
+                                            "developerMoreInfo": ""
                                         }
                                     }
                                 }
@@ -89,7 +97,20 @@
                                 "examples": {
                                     "result": {
                                         "value": {
-
+                                            "status": false,
+                                            "code": 400,
+                                            "data": {},
+                                            "userMessage": null,
+                                            "userMoreInfo": null,
+                                            "developerMessage": "Bad Request",
+                                            "developerMoreInfo": {
+                                                "group": [
+                                                    "The group field is required."
+                                                ],
+                                                "base64": [
+                                                    "The base64 field is required."
+                                                ]
+                                            }
                                         }
                                     }
                                 }
