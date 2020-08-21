@@ -1,8 +1,10 @@
 //= ================= [START Import Modules] =================//
 import { APP_CONFIG } from './AppConfig';
-import { SERVER, API_PATH, LOG } from './MainProperty';
+import { SERVER, API_PATH, LOG, APP, EXPRESS, PATH, ROOT_PATH } from './MainProperty';
 
 import MiddlewareController from './Controllers/MiddlewareController';
+
+import ImagesController from './Controllers/Images/ImagesController';
 //= ================= [END Import Modules] =================//
 
 async function start() {
@@ -33,6 +35,14 @@ async function start() {
     //= ================= [START Init Middleware Controller] =================//
     await new MiddlewareController().setController();
     //= ================= [END Init Middleware Controller] =================//
+
+    //= ================= [START Init Controller] =================//
+    await new ImagesController().setController();
+    //= ================= [END Init Controller] =================//
+
+    //= ================= [START Public Path] =================//
+    APP.use('/image', EXPRESS.static(PATH.join(ROOT_PATH + '/../images')));
+    //= ================= [END Public Path] =================//
 }
 
 start();

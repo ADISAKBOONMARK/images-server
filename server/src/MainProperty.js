@@ -32,14 +32,16 @@ APP.use(bodyParser.json({ limit: '50mb' }));
 
 const ROOT_URL = APP_CONFIG.APP_NAME + APP_CONFIG.APP_VERSION;
 
-const API_PATH = (function () {
+const ENDPOINT = (function () {
     if (APP_CONFIG.ENABLE_SSL === true) {
-        const endpoint = APP_CONFIG.DOMAIN + ':' + APP_CONFIG.PORT_HTTPS;
-        return 'https://' + endpoint + ROOT_URL;
+        return 'https://' + APP_CONFIG.DOMAIN + ':' + APP_CONFIG.PORT_HTTPS;
     } else {
-        const endpoint = APP_CONFIG.DOMAIN + ':' + APP_CONFIG.PORT_HTTP;
-        return 'http://' + endpoint + ROOT_URL;
+        return 'http://' + APP_CONFIG.DOMAIN + ':' + APP_CONFIG.PORT_HTTP;
     }
+})();
+
+const API_PATH = (function () {
+    return ENDPOINT + ROOT_URL;
 })();
 
 const SERVER = (function () {
@@ -79,6 +81,7 @@ export {
     APP,
     APP_CONFIG,
     ROOT_URL,
+    ENDPOINT,
     API_PATH,
     SERVER,
     MOMENT,
