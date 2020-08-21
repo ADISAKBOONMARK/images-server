@@ -3,16 +3,16 @@ import { APP, ENDPOINT, ROOT_URL } from '../../MainProperty';
 import ResultDataProperty from '../../BusinessData/Result/ResultData/ResultDataProperty';
 import ResponseProperty from '../../BusinessData/Response/ResponseProperty';
 
-import Model from '../../Models/Images/ImagesModel';
+import Model from '../../Models/Image/ImageModel';
 
-class ImagesController {
+class ImageController {
     async setController() {
         APP.get('/image.file/:group/:id', async function (req, res) {
             try {
                 const params = req.params;
                 res.redirect(ENDPOINT + '/image' + '/' + params.group + '/' + params.id + '.jpg');
             } catch (err) {
-                res.sendStatus(500).end();
+                res.status(500).end();
             }
         });
 
@@ -34,4 +34,4 @@ class ImagesController {
     }
 }
 
-export default ImagesController;
+export default ImageController;

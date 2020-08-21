@@ -4,7 +4,7 @@ import { SERVER, API_PATH, LOG, APP, EXPRESS, PATH, ROOT_PATH } from './MainProp
 
 import MiddlewareController from './Controllers/MiddlewareController';
 
-import ImagesController from './Controllers/Images/ImagesController';
+import ImageController from './Controllers/Image/ImageController';
 //= ================= [END Import Modules] =================//
 
 async function start() {
@@ -37,7 +37,7 @@ async function start() {
     //= ================= [END Init Middleware Controller] =================//
 
     //= ================= [START Init Controller] =================//
-    await new ImagesController().setController();
+    await new ImageController().setController();
     //= ================= [END Init Controller] =================//
 
     //= ================= [START Public Path] =================//

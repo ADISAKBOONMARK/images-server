@@ -31,68 +31,72 @@ class MiddlewareController {
 
             // NOTICE: You might want to change these.
             res.header('Access-Control-Allow-Origin', '*');
-            res.header('Access-Control-Allow-Methods', 'GET,POST');
+            res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
             res.header('Access-Control-Allow-Headers', 'Content-Type');
             res.setHeader('Content-Type', 'application/json');
 
-            //= ================= [ START Create Session ] ==================//
-            res.xSessionId = req.headers['x-session-id'] || (await MASTER_GEN.genXsession());
-            res.xRtid = req.headers['x-rtid'] || (await MASTER_GEN.genTid());
-            res.xTid = await MASTER_GEN.genTid();
-
-            const session = res.xSessionId + ':' + res.xRtid + ':' + res.xTid;
-            const invoke = res.xRtid;
-            const identity = res.xTid;
-            const method = req.method;
-            const cmd = req.path;
-
-            const log = new LogProvider(session, invoke, method, cmd, identity);
-            log.summary = await log.summary();
-            log.detail = await log.detail();
-
-            log.info('Start Proccess', method, req.originalUrl, '...');
-            log.info('Session', session);
-
-            res.log = log;
-
-            let reqParams;
-            if (!LODASH.isEmpty(req.query)) {
-                reqParams = req.query;
+            if (req.method === 'OPTIONS') {
+                res.status(204).end();
             } else {
-                if (!LODASH.isEmpty(req.body)) {
-                    reqParams = req.body;
+                //= ================= [ START Create Session ] ==================//
+                res.xSessionId = req.headers['x-session-id'] || (await MASTER_GEN.genXsession());
+                res.xRtid = req.headers['x-rtid'] || (await MASTER_GEN.genTid());
+                res.xTid = await MASTER_GEN.genTid();
+
+                const session = res.xSessionId + ':' + res.xRtid + ':' + res.xTid;
+                const invoke = res.xRtid;
+                const identity = res.xTid;
+                const method = req.method;
+                const cmd = req.path;
+
+                const log = new LogProvider(session, invoke, method, cmd, identity);
+                log.summary = await log.summary();
+                log.detail = await log.detail();
+
+                log.info('Start Proccess', method, req.originalUrl, '...');
+                log.info('Session', session);
+
+                res.log = log;
+
+                let reqParams;
+                if (!LODASH.isEmpty(req.query)) {
+                    reqParams = req.query;
                 } else {
-                    reqParams = 'have no data';
+                    if (!LODASH.isEmpty(req.body)) {
+                        reqParams = req.body;
+                    } else {
+                        reqParams = 'have no data';
+                    }
                 }
-            }
 
-            log.debug('Req params', reqParams);
-            log.stat('received_request', 'success', log.method, log.nodeName, log.cmd);
-            log.detail.addInputRequest(log.nodeName, log.cmd, log.invoke, '', reqParams);
-            //= ================= [ END Create Session ] ====================//
+                log.debug('Req params', reqParams);
+                log.stat('received_request', 'success', log.method, log.nodeName, log.cmd);
+                log.detail.addInputRequest(log.nodeName, log.cmd, log.invoke, '', reqParams);
+                //= ================= [ END Create Session ] ====================//
 
-            //= ================= [ START Check Url Not Found ] ==================//
-            const urlNotFound = await checkUrlNotFound(req);
-            //= ================= [ START Check Url Not Found ] ==================//
+                //= ================= [ START Check Url Not Found ] ==================//
+                const urlNotFound = await checkUrlNotFound(req);
+                //= ================= [ START Check Url Not Found ] ==================//
 
-            if (urlNotFound === false) {
-                //= ================= [ START Auten ] ==================//
-                const authen = await checkAuthentication(req);
-                //= ================= [ END Auten ] ====================//
+                if (urlNotFound === false) {
+                    //= ================= [ START Auten ] ==================//
+                    const authen = await checkAuthentication(req);
+                    //= ================= [ END Auten ] ====================//
 
-                if (authen === true) {
-                    next();
+                    if (authen === true) {
+                        next();
+                    } else {
+                        const resultData = new ResultDataProperty();
+                        await resultData.unauthorized({});
+                        const response = new ResponseProperty();
+                        response.submit(res, resultData);
+                    }
                 } else {
                     const resultData = new ResultDataProperty();
-                    await resultData.unauthorized({});
+                    await resultData.dataNotFound({});
                     const response = new ResponseProperty();
                     response.submit(res, resultData);
                 }
-            } else {
-                const resultData = new ResultDataProperty();
-                await resultData.dataNotFound({});
-                const response = new ResponseProperty();
-                response.submit(res, resultData);
             }
         });
     }

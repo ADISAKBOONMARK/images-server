@@ -2,7 +2,7 @@ import { VALIDATION } from '../../MainProperty';
 
 import ResultDataProperty from '../../BusinessData/Result/ResultData/ResultDataProperty';
 
-import Service from '../../Services/Images/ImagesService';
+import Service from '../../Services/Image/ImageService';
 
 class ImagesModel {
     async import(log, params) {
@@ -17,7 +17,7 @@ class ImagesModel {
 
         if (resultValidate.status === true) {
             const service = new Service();
-            const result = await service.getDetail(log, params);
+            const result = await service.import(log, params);
             resultData.set(result);
         } else {
             resultData.badRequest({ developerMoreInfo: resultValidate.message });
