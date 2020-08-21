@@ -15,6 +15,8 @@ import LogProvider from './Providers/Log/LogProvider';
 import DaterProvider from './Providers/Dater/DaterProvider';
 import MasterGenProvider from './Providers/MasterGen/MasterGenProvider';
 import RandomsProvider from './Providers/Randoms/RandomsProvider';
+import UniqueIdProvider from './Providers/UniqueId/UniqueIdProvider';
+import ValidationProvider from './Providers/Validation/ValidationProvider';
 //= ================= [END Import Modules] =================//
 
 //= ================= [ START Require Property ] ==========//
@@ -71,6 +73,8 @@ const LOG = new LogProvider();
 const DATER = new DaterProvider();
 const MASTER_GEN = new MasterGenProvider();
 const RANDOMS = new RandomsProvider();
+const UNIQUE_ID = new UniqueIdProvider();
+const VALIDATION = new ValidationProvider();
 //= ================= [ END Provider ] =======================//
 
 export {
@@ -90,4 +94,6 @@ export {
     DATER,
     MASTER_GEN,
     RANDOMS,
+    UNIQUE_ID,
+    VALIDATION,
 };
