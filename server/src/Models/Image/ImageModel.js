@@ -18,9 +18,9 @@ class ImagesModel {
         if (resultValidate.status === true) {
             const service = new Service();
             const result = await service.import(log, params);
-            resultData.set(result);
+            await resultData.set(result);
         } else {
-            resultData.badRequest({ developerMoreInfo: resultValidate.message });
+            await resultData.badRequest({ developerMoreInfo: resultValidate.message });
         }
 
         return resultData;
