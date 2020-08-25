@@ -3,8 +3,8 @@ import { LOG, EXPECT } from '../../MainProperty.test';
 import Model from './ImageModel';
 
 const runTest = async function () {
-    describe('image' + ' model|', async () => {
-        describe('import' + ' function|', async () => {
+    describe('image' + ' model', async () => {
+        describe('import' + ' function', async () => {
             it('success basic flow', async function () {
                 const log = LOG;
                 const params = {
@@ -41,7 +41,7 @@ const runTest = async function () {
             });
         });
 
-        describe('remove' + ' function|', async () => {
+        describe('remove' + ' function', async () => {
             it('success basic flow', async function () {
                 const log = LOG;
                 const params = {

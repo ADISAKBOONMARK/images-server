@@ -4,7 +4,7 @@
   "description": "",
   "main": "backpack.config.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha src/Main.test.js --require babel-register --reporter list",
+    "test": "nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha src/Main.test.js --require babel-register --reporter mocha-multi-reporters --reporter-options configFile=test.config.json",
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
     "api-docs": "nodemon --exec node api-docs/server.js",
@@ -32,6 +32,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^8.1.1",
+    "mocha-junit-reporter": "^2.0.0",
+    "mocha-multi-reporters": "^1.1.7",
+    "mochawesome": "^6.1.1",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5"
   },
