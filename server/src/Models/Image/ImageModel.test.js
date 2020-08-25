@@ -2,20 +2,10 @@ import { LOG, EXPECT } from '../../MainProperty.test';
 
 import Model from './ImageModel';
 
-const config = {
-    model: 'image',
-    functionList: [
-        {
-            name: 'import',
-            caseList: ['success basic flow', 'validate fail'],
-        },
-    ],
-};
-
 const runTest = async function () {
-    describe(config.model + ' model|', async () => {
-        describe(config.functionList[0].name + ' function|', async () => {
-            it(config.functionList[0].caseList[0], async function () {
+    describe('image' + ' model|', async () => {
+        describe('import' + ' function|', async () => {
+            it('success basic flow', async function () {
                 const log = LOG;
                 const params = {
                     group: 'test',
@@ -28,7 +18,7 @@ const runTest = async function () {
                 EXPECT(result.code).to.equal(202);
             });
 
-            it(config.functionList[0].caseList[1], async function () {
+            it('validate fail', async function () {
                 const log = LOG;
                 const params = {};
                 const model = new Model();

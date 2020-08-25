@@ -1,6 +1,5 @@
 import { IMAGES_PATH, PATH, FS } from './MainProperty.test';
 
-import ImageService from './Services/Image/ImageService.test';
 import ImageModel from './Models/Image/ImageModel.test';
 
 async function start() {
@@ -27,7 +26,6 @@ async function start() {
     //= ===============================================//
 
     //= ================ Run unit-test ================//
-    ImageService.runTest();
     ImageModel.runTest();
     //= ===============================================//
 
