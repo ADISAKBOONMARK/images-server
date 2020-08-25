@@ -78,7 +78,9 @@
                                             "status": true,
                                             "code": 202,
                                             "data": {
-                                                "url": "http://localhost:8000/image.file/profile/1bcc1e2f-24b3-4b90-b6c4-31260fc3056a"
+                                                "id": "ba897115-9fea-4de4-85a0-bdac70b03a29",
+                                                "group": "profile",
+                                                "url": "http://localhost:8000/image.file/profile/ba897115-9fea-4de4-85a0-bdac70b03a29"
                                             },
                                             "userMessage": "The request has been received",
                                             "userMoreInfo": "",
