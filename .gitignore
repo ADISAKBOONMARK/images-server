@@ -8,7 +8,7 @@ server/bin
 server/logs
 server/certs
 server/images
-server/unit-test-report
+server/test-report
 server/node_modules
 server/package-lock.json
 server/src/node_modules

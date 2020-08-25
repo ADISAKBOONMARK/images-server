@@ -4,7 +4,7 @@
   "description": "",
   "main": "backpack.config.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text --temp-dir=./unit-test-report/.nyc_output --report-dir=./unit-test-report/coverage mocha src/Main.test.js --require babel-register --reporter list",
+    "test": "nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha src/Main.test.js --require babel-register --reporter list",
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
     "api-docs": "nodemon --exec node api-docs/server.js",
