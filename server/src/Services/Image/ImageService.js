@@ -54,7 +54,7 @@ class ImageService {
         if (FS.existsSync(imgFilePath)) {
             await FS.unlinkSync(imgFilePath);
 
-            const message = 'remove image success';
+            const message = 'remove image success.';
 
             const resultData = new ResultDataProperty();
 
@@ -62,7 +62,7 @@ class ImageService {
 
             return resultData;
         } else {
-            const message = 'image not found';
+            const message = 'image not found.';
 
             const resultData = new ResultDataProperty();
 
