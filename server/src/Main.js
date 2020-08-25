@@ -1,6 +1,6 @@
 //= ================= [START Import Modules] =================//
 import { APP_CONFIG } from './AppConfig';
-import { SERVER, API_PATH, LOG, APP, EXPRESS, PATH, ROOT_PATH } from './MainProperty';
+import { FS, SERVER, API_PATH, LOG, APP, EXPRESS, PATH, ROOT_PATH, IMAGES_PATH } from './MainProperty';
 
 import MiddlewareController from './Controllers/MiddlewareController';
 
@@ -41,7 +41,11 @@ async function start() {
     //= ================= [END Init Controller] =================//
 
     //= ================= [START Public Path] =================//
-    APP.use('/image', EXPRESS.static(PATH.join(ROOT_PATH + '/../images')));
+    if (!FS.existsSync(IMAGES_PATH)) {
+        await FS.mkdirSync(IMAGES_PATH);
+    }
+
+    APP.use('/image', EXPRESS.static(IMAGES_PATH));
     //= ================= [END Public Path] =================//
 }
 

@@ -1,4 +1,4 @@
-import { PATH, FS, ROOT_PATH, UNIQUE_ID, ENDPOINT } from '../../MainProperty';
+import { PATH, FS, UNIQUE_ID, ENDPOINT, IMAGES_PATH } from '../../MainProperty';
 
 import ResultDataProperty from '../../BusinessData/Result/ResultData/ResultDataProperty';
 
@@ -11,7 +11,7 @@ class ImageService {
 
         const imgExportPath = '/' + imgGroup + '/' + imgId;
 
-        const imgDirPath = PATH.join(ROOT_PATH, '../images' + '/' + imgGroup);
+        const imgDirPath = PATH.join(IMAGES_PATH + '/' + imgGroup);
         const imgFilePath = imgDirPath + '/' + imgId + '.jpg';
 
         const base64Image = imgBase64.split(';base64,').pop();
