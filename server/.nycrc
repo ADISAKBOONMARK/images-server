@@ -1,0 +1,9 @@
+{
+    "include": [
+        "src/Models",
+        "src/Services"
+    ],
+    "exclude": [
+        "**/*.test.js"
+    ] 
+}
