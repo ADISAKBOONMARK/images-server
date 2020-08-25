@@ -18,6 +18,19 @@ const runTest = async function () {
                 EXPECT(result.code).to.equal(202);
             });
 
+            it('base64 out of the format', async function () {
+                const log = LOG;
+                const params = {
+                    group: 'test',
+                    base64:
+                        'xsRtf4rVWn+iAiRxkhwfin9wACYnf1c8AfbHlpmPiAQz+ddbZZ78LecQWvN1lJKYRgm+VyuQW29PNXWH9OGe1lQPTeHrreEI3u12oYChJzryqN/oV3a00fmsUEAAAAASUVORK5CYII=',
+                };
+                const model = new Model();
+                const result = await model.import(log, params);
+
+                EXPECT(result.code).to.equal(400);
+            });
+
             it('validate fail', async function () {
                 const log = LOG;
                 const params = {};
