@@ -35,10 +35,10 @@ $ cd images-server/server
 $ npm run start
 ```
 
-#### Unit-Test Server
+#### Test Server
 ```bash
 $ cd images-server/server
-$ npm run unit-test
+$ npm run test
 ```
 
 #### Start APIs Document
