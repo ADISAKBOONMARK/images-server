@@ -1,6 +1,6 @@
 //= ================= [START Import Modules] =================//
 import { APP_CONFIG } from './AppConfig';
-import { FS, SERVER, API_PATH, LOG, APP, EXPRESS, PATH, ROOT_PATH, IMAGES_PATH } from './MainProperty';
+import { FS, SERVER, API_PATH, LOG, APP, EXPRESS, IMAGES_PATH } from './MainProperty';
 
 import MiddlewareController from './Controllers/MiddlewareController';
 
