@@ -121,6 +121,108 @@
                     }
                 }
             }
+        },
+        "/image/remove": {
+            "post": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "The service used to remove the image.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "group": {
+                                        "description": "The group of the image",
+                                        "type": "string",
+                                        "example": "profile"
+                                    },
+                                    "id": {
+                                        "description": "The id of the image",
+                                        "type": "string",
+                                        "example": "ba897115-9fea-4de4-85a0-bdac70b03a29"
+                                    }
+                                },
+                                "required": [
+                                    "group",
+                                    "id"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "result": {
+                                        "value": {
+                                            "status": true,
+                                            "code": 202,
+                                            "data": {},
+                                            "userMessage": "The request has been received",
+                                            "userMoreInfo": "remove image success",
+                                            "developerMessage": "Accepted",
+                                            "developerMoreInfo": "remove image success"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "result": {
+                                        "value": {
+                                            "status": false,
+                                            "code": 400,
+                                            "data": {},
+                                            "userMessage": null,
+                                            "userMoreInfo": null,
+                                            "developerMessage": "Bad Request",
+                                            "developerMoreInfo": {
+                                                "group": [
+                                                    "The group field is required."
+                                                ],
+                                                "id": [
+                                                    "The id field is required."
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "result": {
+                                        "value": {
+                                            "status": false,
+                                            "code": 500,
+                                            "data": {},
+                                            "userMessage": "The server encountered an unexpected condition",
+                                            "userMoreInfo": "image not found",
+                                            "developerMessage": "System Error",
+                                            "developerMoreInfo": "image not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
