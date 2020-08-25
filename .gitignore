@@ -7,6 +7,8 @@ server/.env
 server/bin
 server/logs
 server/certs
+server/images
+server/test-report
 server/node_modules
 server/package-lock.json
 server/src/node_modules

@@ -4,6 +4,7 @@
   "description": "",
   "main": "backpack.config.js",
   "scripts": {
+    "test": "nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha src/Main.test.js --require babel-register --reporter list",
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
     "api-docs": "nodemon --exec node api-docs/server.js",
@@ -13,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "assert": "^2.0.0",
     "aws-sdk": "^2.725.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -20,6 +22,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "backpack-core": "^0.8.4",
+    "chai": "^4.2.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
@@ -28,6 +31,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
     "prettier": "^2.0.5"
   },
   "dependencies": {}

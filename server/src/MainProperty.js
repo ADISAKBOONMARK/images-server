@@ -77,6 +77,8 @@ const UNIQUE_ID = new UniqueIdProvider();
 const VALIDATION = new ValidationProvider();
 //= ================= [ END Provider ] =======================//
 
+const IMAGES_PATH = PATH.join(ROOT_PATH + '/../images');
+
 export {
     ROOT_PATH,
     PATH,
@@ -96,4 +98,5 @@ export {
     RANDOMS,
     UNIQUE_ID,
     VALIDATION,
+    IMAGES_PATH,
 };

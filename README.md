@@ -35,6 +35,12 @@ $ cd images-server/server
 $ npm run start
 ```
 
+#### Test Server
+```bash
+$ cd images-server/server
+$ npm run test
+```
+
 #### Start APIs Document
 ```bash
 $ cd images-server/server
@@ -45,4 +51,15 @@ $ npm run api-docs
 ```bash
 $ cd images-server/server
 $ npm run build
+
+#You can run app with the build.js
+$ node build.js
+
+#If error (Error: Cannot find module 'express') 
+$ npm init
+$ npm install express
+...
+
+#Run the build.js again
+$ node build.js
 ```
