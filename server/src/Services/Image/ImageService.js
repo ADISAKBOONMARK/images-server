@@ -43,6 +43,34 @@ class ImageService {
             return resultData;
         }
     }
+
+    async remove(log, params) {
+        const imgGroup = params.group;
+        const imgId = params.id;
+
+        const imgDirPath = PATH.join(IMAGES_PATH + '/' + imgGroup);
+        const imgFilePath = imgDirPath + '/' + imgId + '.jpg';
+
+        if (FS.existsSync(imgFilePath)) {
+            await FS.unlinkSync(imgFilePath);
+
+            const message = 'remove image success';
+
+            const resultData = new ResultDataProperty();
+
+            await resultData.accepted({ userMoreInfo: message, developerMoreInfo: message });
+
+            return resultData;
+        } else {
+            const message = 'image not found';
+
+            const resultData = new ResultDataProperty();
+
+            await resultData.systemError({ userMoreInfo: message, developerMoreInfo: message });
+
+            return resultData;
+        }
+    }
 }
 
 export default ImageService;

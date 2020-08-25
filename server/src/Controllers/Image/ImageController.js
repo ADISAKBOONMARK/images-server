@@ -31,6 +31,22 @@ class ImageController {
                 response.submit(res, resultData, err);
             }
         });
+
+        APP.post(ROOT_URL + '/image/remove', async function (req, res) {
+            try {
+                const log = res.log;
+                const params = req.body;
+                const model = new Model();
+                const resultData = await model.remove(log, params);
+                const response = new ResponseProperty();
+                response.submit(res, resultData);
+            } catch (err) {
+                const resultData = new ResultDataProperty();
+                await resultData.systemError({ developerMoreInfo: err.message });
+                const response = new ResponseProperty();
+                response.submit(res, resultData, err);
+            }
+        });
     }
 }
 

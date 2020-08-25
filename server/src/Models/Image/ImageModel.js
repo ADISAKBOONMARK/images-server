@@ -25,6 +25,27 @@ class ImagesModel {
 
         return resultData;
     }
+
+    async remove(log, params) {
+        const rules = {
+            group: 'required|string',
+            id: 'required|string',
+        };
+
+        const resultValidate = await VALIDATION.compare(params, rules);
+
+        const resultData = new ResultDataProperty();
+
+        if (resultValidate.status === true) {
+            const service = new Service();
+            const result = await service.remove(log, params);
+            await resultData.set(result);
+        } else {
+            await resultData.badRequest({ developerMoreInfo: resultValidate.message });
+        }
+
+        return resultData;
+    }
 }
 
 export default ImagesModel;
