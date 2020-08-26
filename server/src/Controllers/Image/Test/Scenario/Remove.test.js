@@ -54,7 +54,7 @@ const runTest = async function (controller) {
 
             const response = await api.post(requestOption);
 
-            EXPECT(response.status).to.equal(500);
+            EXPECT(response.status).to.equal(400);
         });
     });
 };
