@@ -4,6 +4,7 @@
         "code": false,
         "quiet": true,
         "reportDir": "./test-report/result",
+        "reportFilename": "index",
         "consoleReporter": "list"
     },
     "mochaJunitReporterReporterOptions": {
