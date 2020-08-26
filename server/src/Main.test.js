@@ -7,7 +7,7 @@ import ImageScenario from './Controllers/Image/Test/Scenario.test';
 
 async function start() {
     //= ================ Remove images test ============//
-    const imagesTestDir = PATH.join(IMAGES_PATH + '/test');
+    const imagesTestDir = PATH.join(IMAGES_PATH, 'test');
 
     const deleteFolderRecursive = function (path) {
         if (FS.existsSync(path)) {
