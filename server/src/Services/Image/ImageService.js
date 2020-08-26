@@ -10,7 +10,7 @@ class ImageService {
 
         const imgExportPath = '/' + imgGroup + '/' + imgId;
 
-        const imgDirPath = PATH.join(IMAGES_PATH + '/' + imgGroup);
+        const imgDirPath = PATH.join(IMAGES_PATH, imgGroup);
         const imgFilePath = imgDirPath + '/' + imgId + '.jpg';
 
         if (imgBase64.indexOf(';base64,') !== -1) {
@@ -48,7 +48,7 @@ class ImageService {
         const imgGroup = params.group;
         const imgId = params.id;
 
-        const imgDirPath = PATH.join(IMAGES_PATH + '/' + imgGroup);
+        const imgDirPath = PATH.join(IMAGES_PATH, imgGroup);
         const imgFilePath = imgDirPath + '/' + imgId + '.jpg';
 
         if (FS.existsSync(imgFilePath)) {
