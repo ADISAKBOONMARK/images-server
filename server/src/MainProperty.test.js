@@ -1,23 +1,56 @@
-import path from 'path';
-import fs from 'fs';
+import { API_PATH } from './MainProperty';
+
+import axios from 'axios';
 
 import { expect } from 'chai';
 import { strict } from 'assert';
 
-const ROOT_PATH = __dirname;
-const PATH = path;
-const FS = fs;
-
 const EXPECT = expect;
 const STRICT = strict;
 
-const LOG = new (class LogProvider {
-    async info(...msg) {}
-    async debug(...msg) {}
-    async error(...msg) {}
-    async warn(...msg) {}
-})();
+const HEADERS = {
+    'Content-Type': 'application/json',
+};
 
-const IMAGES_PATH = PATH.join(ROOT_PATH + '/../images');
+const API = class {
+    async get(requestOption) {
+        const params = new URLSearchParams(requestOption.params).toString();
 
-export { IMAGES_PATH, ROOT_PATH, PATH, FS, LOG, EXPECT, STRICT };
+        const option = {
+            method: 'GET',
+            headers: requestOption.headers || HEADERS,
+            url: API_PATH + requestOption.cmd + '?' + params,
+        };
+
+        const response = await axios(option)
+            .then(function (response) {
+                return response;
+            })
+            .catch(function (err) {
+                return err.response;
+            });
+
+        return response;
+    }
+
+    async post(requestOption) {
+        const option = {
+            method: 'POST',
+            headers: requestOption.headers || HEADERS,
+            url: API_PATH + requestOption.cmd,
+            data: requestOption.body,
+        };
+
+        const response = await axios(option)
+            .then(function (response) {
+                return response;
+            })
+            .catch(function (err) {
+                return err.response;
+            });
+
+        return response;
+    }
+};
+
+export { API, EXPECT, STRICT };

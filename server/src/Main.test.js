@@ -1,6 +1,9 @@
-import { IMAGES_PATH, PATH, FS } from './MainProperty.test';
+// eslint-disable-next-line no-unused-vars
+import Main from './Main';
 
-import ImageModel from './Models/Image/ImageModel.test';
+import { IMAGES_PATH, PATH, FS } from './MainProperty';
+
+import ImageScenario from './Controllers/Image/Test/Scenario.test';
 
 async function start() {
     //= ================ Remove images test ============//
@@ -26,7 +29,7 @@ async function start() {
     //= ===============================================//
 
     //= ================ Run unit-test ================//
-    ImageModel.runTest();
+    ImageScenario.runTest();
     //= ===============================================//
 
     //= ================ End process ================//
