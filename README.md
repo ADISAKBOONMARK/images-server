@@ -18,12 +18,14 @@ $ git clone https://github.com/ADISAKBOONMARK/images-server.git
 
 ## Installation 
 ```bash
-# Install node module of the server
+# Install node module of the server.
 $ cd images-server/server
 $ npm install
 $ cd images-server/server/src
 $ npm install
 $ cd images-server/server/api-docs
+$ npm install
+$ cd images-server/server/test-ui-report
 $ npm install
 ```
 
@@ -39,6 +41,9 @@ $ npm run start
 ```bash
 $ cd images-server/server
 $ npm run test
+
+#You can view the interface test report with the below command.
+$ npm run test-ui-report
 ```
 
 #### Start APIs Document
@@ -52,14 +57,14 @@ $ npm run api-docs
 $ cd images-server/server
 $ npm run build
 
-#You can run app with the build.js
+#You can run the server with the file build.js.
 $ node build.js
 
-#If error (Error: Cannot find module 'express') 
+#If error this case "Error: Cannot find module 'express' " or similar case.
 $ npm init
 $ npm install express
 ...
 
-#Run the build.js again
+#Run the build.js again.
 $ node build.js
 ```
