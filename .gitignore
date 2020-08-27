@@ -16,3 +16,6 @@ server/src/package-lock.json
 
 server/api-docs/node_modules
 server/api-docs/package-lock.json
+
+server/test-ui-report/node_modules
+server/test-ui-report/package-lock.json

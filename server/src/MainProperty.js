@@ -50,9 +50,9 @@ const SERVER = (function () {
     if (APP_CONFIG.ENABLE_SSL === true) {
         return https.createServer(
             {
-                key: FS.readFileSync(path.join(ROOT_PATH, APP_CONFIG.APP_PRIVKEY), 'utf8'),
-                cert: FS.readFileSync(path.join(ROOT_PATH, APP_CONFIG.APP_CERT), 'utf8'),
-                ca: FS.readFileSync(path.join(ROOT_PATH, APP_CONFIG.APP_CHAIN), 'utf8'),
+                key: FS.readFileSync(PATH.join(ROOT_PATH, APP_CONFIG.APP_PRIVKEY), 'utf8'),
+                cert: FS.readFileSync(PATH.join(ROOT_PATH, APP_CONFIG.APP_CERT), 'utf8'),
+                ca: FS.readFileSync(PATH.join(ROOT_PATH, APP_CONFIG.APP_CHAIN), 'utf8'),
             },
             APP,
         );
@@ -77,7 +77,7 @@ const UNIQUE_ID = new UniqueIdProvider();
 const VALIDATION = new ValidationProvider();
 //= ================= [ END Provider ] =======================//
 
-const IMAGES_PATH = PATH.join(ROOT_PATH + '/../images');
+const IMAGES_PATH = PATH.join(ROOT_PATH, '../images');
 
 export {
     ROOT_PATH,

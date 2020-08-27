@@ -1,10 +1,13 @@
-import { IMAGES_PATH, PATH, FS } from './MainProperty.test';
+// eslint-disable-next-line no-unused-vars
+import Main from '../src/Main';
 
-import ImageModel from './Models/Image/ImageModel.test';
+import { IMAGES_PATH, PATH, FS } from '../src/MainProperty';
+
+import ImageScenario from './Image/Scenario.test';
 
 async function start() {
     //= ================ Remove images test ============//
-    const imagesTestDir = PATH.join(IMAGES_PATH + '/test');
+    const imagesTestDir = PATH.join(IMAGES_PATH, 'test');
 
     const deleteFolderRecursive = function (path) {
         if (FS.existsSync(path)) {
@@ -26,7 +29,7 @@ async function start() {
     //= ===============================================//
 
     //= ================ Run unit-test ================//
-    ImageModel.runTest();
+    ImageScenario.runTest();
     //= ===============================================//
 
     //= ================ End process ================//

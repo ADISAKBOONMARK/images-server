@@ -13,17 +13,19 @@ The application will be the back-end to provide APIs services. Used to manage th
 
 ## Download 
 ```bash
-$ git clone https://github.com/ADISAKBOONMARK/images-server.git
+$ git clone https://github.com/ADISAKBOONMARK/images-server.be-webapi.git
 ```
 
 ## Installation 
 ```bash
-# Install node module of the server
-$ cd images-server/server
+# Install node module of the server.
+$ cd images-server.be-webapi/server
 $ npm install
-$ cd images-server/server/src
+$ cd images-server.be-webapi/server/src
 $ npm install
-$ cd images-server/server/api-docs
+$ cd images-server.be-webapi/server/api-docs
+$ npm install
+$ cd images-server.be-webapi/server/test-ui-report
 $ npm install
 ```
 
@@ -31,35 +33,38 @@ $ npm install
 
 #### Start Server
 ```bash
-$ cd images-server/server
+$ cd images-server.be-webapi/server
 $ npm run start
 ```
 
 #### Test Server
 ```bash
-$ cd images-server/server
+$ cd images-server.be-webapi/server
 $ npm run test
+
+#You can view the interface test report with the below command.
+$ npm run test-ui-report
 ```
 
 #### Start APIs Document
 ```bash
-$ cd images-server/server
+$ cd images-server.be-webapi/server
 $ npm run api-docs
 ```
 
 #### Build Server
 ```bash
-$ cd images-server/server
+$ cd images-server.be-webapi/server
 $ npm run build
 
-#You can run app with the build.js
+#You can run the server with the file build.js.
 $ node build.js
 
-#If error (Error: Cannot find module 'express') 
+#If error this case "Error: Cannot find module 'express' " or similar case.
 $ npm init
 $ npm install express
 ...
 
-#Run the build.js again
+#Run the build.js again.
 $ node build.js
 ```
