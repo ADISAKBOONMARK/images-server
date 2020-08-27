@@ -66,7 +66,7 @@ class ImageService {
 
             const resultData = new ResultDataProperty();
 
-            await resultData.systemError({ userMoreInfo: message, developerMoreInfo: message });
+            await resultData.dataNotFound({ userMoreInfo: message, developerMoreInfo: message });
 
             return resultData;
         }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "backpack.config.js",
   "scripts": {
-    "test": "env LOG_WRITE_FILE=false LOG_WRITE_CONSOLE=false LOG_MODE=info nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha src/Main.test.js --require babel-register --reporter mocha-multi-reporters --reporter-options configFile=test.config.json",
+    "test": "env LOG_WRITE_FILE=false LOG_WRITE_CONSOLE=false LOG_MODE=info nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha test/Main.test.js --require babel-register --reporter mocha-multi-reporters --reporter-options configFile=test.config.json",
     "test-ui-report": "nodemon --exec node test-ui-report/server.js",
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
@@ -17,7 +17,6 @@
   "devDependencies": {
     "assert": "^2.0.0",
     "aws-sdk": "^2.725.0",
-    "axios": "^0.20.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",

@@ -5,8 +5,8 @@ const controller = 'image';
 
 const runTest = async function () {
     describe(controller, async () => {
-        Import.runTest(controller);
-        Remove.runTest(controller);
+        Import.runTest();
+        Remove.runTest();
     });
 };
 

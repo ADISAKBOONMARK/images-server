@@ -1,11 +1,9 @@
 {
     "include": [
         "src/Models",
-        "src/Services",
-        "src/Controllers"
+        "src/Services"
     ],
     "exclude": [
-        "**/*.test.js",
-        "src/Controllers/MiddlewareController.js"
+        "**/*.test.js"
     ] 
 }
