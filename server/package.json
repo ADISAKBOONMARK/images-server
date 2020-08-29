@@ -6,6 +6,8 @@
   "scripts": {
     "test": "env LOG_WRITE_FILE=false LOG_WRITE_CONSOLE=false LOG_MODE=info nyc --reporter=lcov --reporter=text --temp-dir=./test-report/.nyc_output --report-dir=./test-report/coverage mocha test/Main.test.js --require babel-register --reporter mocha-multi-reporters --reporter-options configFile=test.config.json",
     "test-ui-report": "nodemon --exec node test-ui-report/server.js",
+    "integrate": "newman run ./integrate/script/collection.json -e ./integrate/script/environment.json -r cli,junit,html,htmlextra --reporter-junit-export ./integrate-report/junit.xml --reporter-html-export ./integrate-report/paper.html --reporter-htmlextra-export ./integrate-report/extra.html",
+    "integrate-ui-report": "nodemon --exec node integrate-ui-report/server.js",
     "build": "backpack build",
     "start": "nodemon --exec babel-node src/Main.js",
     "api-docs": "nodemon --exec node api-docs/server.js",
@@ -39,5 +41,9 @@
     "nyc": "^15.1.0",
     "prettier": "^2.0.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "newman": "^5.1.2",
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-htmlextra": "^1.19.0"
+  }
 }
