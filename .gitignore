@@ -9,6 +9,9 @@ server/logs
 server/certs
 server/images
 server/test-report
+server/integrate/collection.json
+server/integrate/environment.json
+server/integrate-report
 server/node_modules
 server/package-lock.json
 server/src/node_modules
@@ -19,3 +22,8 @@ server/api-docs/package-lock.json
 
 server/test-ui-report/node_modules
 server/test-ui-report/package-lock.json
+
+server/integrate-ui-report/node_modules
+server/integrate-ui-report/package-lock.json
+
+
