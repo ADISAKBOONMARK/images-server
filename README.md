@@ -21,11 +21,21 @@ $ git clone https://github.com/ADISAKBOONMARK/images-server.be-webapi.git
 # Install node module of the server.
 $ cd images-server.be-webapi/server
 $ npm install
+
+# Install node module of the source code.
 $ cd images-server.be-webapi/server/src
 $ npm install
+
+# Install node module of the swagger.
 $ cd images-server.be-webapi/server/api-docs
 $ npm install
+
+# Install node module of the unit-test report.
 $ cd images-server.be-webapi/server/test-ui-report
+$ npm install
+
+# Install node module of the integrate report.
+$ cd images-server.be-webapi/server/integrate-ui-report
 $ npm install
 ```
 
@@ -37,7 +47,7 @@ $ cd images-server.be-webapi/server
 $ npm run start
 ```
 
-#### Test Server
+#### Unit-Test Server
 ```bash
 $ cd images-server.be-webapi/server
 $ npm run test
@@ -46,10 +56,24 @@ $ npm run test
 $ npm run test-ui-report
 ```
 
-#### Start APIs Document
+#### Integrate Server
 ```bash
 $ cd images-server.be-webapi/server
-$ npm run api-docs
+
+# Before run the integrate must be start server.
+# $ npm run start
+# -------------- or ------------------
+# $ npm run build
+# $ cd images-server.be-webapi/server/bin
+# $ npm init
+# $ npm install express
+# ...
+# $ node build.js
+
+$ npm run integrate
+
+#You can view the interface integrate report with the below command.
+$ npm run integrate-ui-report
 ```
 
 #### Build Server
@@ -58,6 +82,7 @@ $ cd images-server.be-webapi/server
 $ npm run build
 
 #You can run the server with the file build.js.
+$ cd images-server.be-webapi/server/bin
 $ node build.js
 
 #If error this case "Error: Cannot find module 'express' " or similar case.
@@ -67,4 +92,10 @@ $ npm install express
 
 #Run the build.js again.
 $ node build.js
+```
+
+#### Start APIs Document
+```bash
+$ cd images-server.be-webapi/server
+$ npm run api-docs
 ```
