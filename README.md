@@ -1,4 +1,4 @@
-# Images Server (BE web APIs)
+# Images Server (back-end web APIs)
 The application will be the back-end to provide APIs services. Used to manage the image files.
 
 ## Required Software
